@@ -31,7 +31,8 @@
     <connection id="12ae25f3-beea-4b21-97d0-409b117714cb">
       <console name="Medunna" type="STANDARD" schema="information_schema" session="Main"><![CDATA[select * from public.physician
 
-select  * from public.physician where id = 147333;]]></console>
+Select * from jhi_user]]></console>
+      <console name="Medunna 1" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

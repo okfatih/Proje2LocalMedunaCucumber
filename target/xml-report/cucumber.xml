@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="13.053">
-    <testcase classname="Create or Edit Patient by just Admin" name="New patients can only be created by admin" time="12.658">
-        <system-out><![CDATA[Given User goes to Medunna..................................................passed
-Then Admin goes to sign in symbol and click on it...........................passed
-And Admin fills in username and password then clicks sign in................passed
-And Admin clicks on the Administration......................................passed
-Then Admin navigates to Create a new user and clicks on it..................passed
-And Admin saves the new Patient.............................................passed
-]]></system-out>
-    </testcase>
-</testsuite>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" time="0.124"/>
