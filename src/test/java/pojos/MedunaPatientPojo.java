@@ -1,6 +1,8 @@
 package pojos;
 
+import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MedunaPatientPojo {
