@@ -3,10 +3,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.RegistrationPage;
+import pages.US15;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSExecutor;
+import utilities.JsUtils;
 
 public class RegistirationSteps {
+    US15 us15 = new US15();
     Faker faker = new Faker();
     RegistrationPage registrationPage = new RegistrationPage();
 
@@ -51,4 +55,6 @@ public class RegistirationSteps {
     @Then("user reads all registrant data")
     public void userReadsAllRegistrantData() {
     }
+
+
 }

@@ -12,6 +12,9 @@ public class US15 {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy (xpath = "//li[@id='account-menu']//following::a[@href=\"/account/register\"]")
+    public WebElement accounreg;
+
     @FindBy(xpath = "//*[@id='account-menu']")
     public WebElement SignIn;
 
@@ -75,6 +78,9 @@ public class US15 {
 
     @FindBy (xpath = "//button[@type=\"submit\"]/span[text()=\"Save\"]")
     public WebElement saveButton;
+
+
+
 
 
 

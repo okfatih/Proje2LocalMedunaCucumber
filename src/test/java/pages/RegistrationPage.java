@@ -30,6 +30,11 @@ public class RegistrationPage {
     @FindBy (id="register-submit")
     public WebElement registerButton;
 
+    @FindBy (xpath = "//select[@id='patient-gender']")
+    public WebElement genderButtonu;
+
+    @FindBy (xpath = "//input[@id='patient-birthDate']")
+    public WebElement calendar;
 
 
 
