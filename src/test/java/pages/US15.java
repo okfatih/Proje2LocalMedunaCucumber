@@ -12,7 +12,7 @@ public class US15 {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy (xpath = "//li[@id='account-menu']//following::a[@href=\"/account/register\"]")
+    @FindBy(xpath = "//li[@id='account-menu']//following::a[@href=\"/account/register\"]")
     public WebElement accounreg;
 
     @FindBy(xpath = "//*[@id='account-menu']")
@@ -57,33 +57,42 @@ public class US15 {
     @FindBy(xpath = "//li[@class=\"nav-item\"]//a[starts-with(@href,\"/ab\")]")
     public WebElement about;
 
-    @FindBy (xpath = "//div[@class=\"gallery-item\"]/a[contains(@href,'1')]")
+    @FindBy(xpath = "//div[@class=\"gallery-item\"]/a[contains(@href,'1')]")
     public WebElement resim1;
 
-    @FindBy (xpath = "//input[@name='login']")
+    @FindBy(xpath = "//input[@name='login']")
     public WebElement formLogin;
 
-    @FindBy (xpath = "//select[@id='langKey']")
+    @FindBy(css = "#lastName")
+    public WebElement lastname;
+
+    @FindBy (css = "#email")
+    public WebElement email;
+
+    @FindBy (css = "#ssn")
+    public  WebElement ssn;
+
+    @FindBy (css = "#langKey")
+    public WebElement language;
+
+    @FindBy (xpath = "//select[@id='authorities']")
+    public WebElement Profiles;
+
+    @FindBy(xpath = "//select[@id='langKey']")
     public WebElement dilClick;
 
-    @FindBy (xpath = "//select[@id='langKey']/option[text()='English']")
+    @FindBy(xpath = "//select[@id='langKey']/option[text()='English']")
     public WebElement english;
 
-    @FindBy (xpath = "//select[@id='langKey']/option[text()='Türkçe']")
+    @FindBy(xpath = "//select[@id='langKey']/option[text()='Türkçe']")
     public WebElement turkish;
 
-    @FindBy (xpath = "//select[@id='authorities']/option[text()='ROLE_PATIENT']")
+    @FindBy(xpath = "//select[@id='authorities']/option[text()='ROLE_PATIENT']")
     public WebElement rolePatient;
 
 
-    @FindBy (xpath = "//button[@type=\"submit\"]/span[text()=\"Save\"]")
+    @FindBy(xpath = "//button[@type=\"submit\"]/span[text()=\"Save\"]")
     public WebElement saveButton;
-
-
-
-
-
-
 
 
 }

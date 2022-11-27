@@ -5,11 +5,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.US15;
-import utilities.ConfigReader;
-import utilities.Driver;
-import utilities.JsUtils;
-import utilities.ObjectMapperUtils;
+import utilities.*;
 
 
 public class Us015StepDef {
@@ -80,6 +78,59 @@ public class Us015StepDef {
     JsUtils.JSUtils.clickElementByJS(medunaPage.saveButton);
 
 
+    }
+
+
+    @And("Admin enters a {string} for name")
+    public void adminEntersAForName(String username) {
+        medunaPage.formLogin.sendKeys(username);
+
+    }
+
+    @Then("Admin enters a {string} for first name")
+    public void adminEntersAForFirstName(String firstname) {
+        medunaPage.firstName.sendKeys(firstname);
+    }
+
+    @And("Admin enters a {string} for last name")
+    public void adminEntersAForLastName(String lastname) {
+        medunaPage.lastname.sendKeys(lastname);
+
+    }
+
+    @And("enters an {string} for email")
+    public void entersAnForEmail(String email) {
+        medunaPage.email.sendKeys(email);
+
+    }
+    @And("enter an {string} for ssn")
+    public void enterAnForSsn(String ssn) {
+        medunaPage.ssn.sendKeys(ssn);
+
+
+    }
+    @And("enters a {string} for language")
+    public void entersAForLanguage(String language) {
+        medunaPage.language.sendKeys(language);
+    }
+
+    @And("selects a {string}for patient")
+    public void selectsAForPatient(String role) {
+        Select select = new Select(medunaPage.Profiles);
+        select.selectByValue(role);
+
+    }
+
+    @Then("saves it and closes the webpage")
+    public void savesItAndClosesTheWebpage() {
+        JSExecutor.clickElementByJS(medunaPage.saveButton);
+       Driver.closeDriver();
+
+    }
+
+    @Then("Admin navigates to Create a new user")
+    public void adminNavigatesToCreateANewUser() {
+        medunaPage.createUser.click();
     }
 
 
