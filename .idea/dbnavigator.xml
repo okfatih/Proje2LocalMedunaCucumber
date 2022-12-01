@@ -41,11 +41,17 @@ from
 name='superuser_reserved_connection') t2,
 (select setting::int max_conn from pg_settings where name='max_connections')t3
 
-Select * from "public".patient where first_name='fatih']]></console>
+Select * from "public".patient 
+select * from "public".c_state where
+ id =  1255]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="12ae25f3-beea-4b21-97d0-409b117714cb" dataset="public.c_state" active-filter-id="" />
+    <filter-actions connection-id="12ae25f3-beea-4b21-97d0-409b117714cb" dataset="public.country" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

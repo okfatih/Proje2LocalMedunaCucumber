@@ -41,6 +41,7 @@ public class US15_apiStepDef extends MedunaBaseUrl {
     public void user_validates_patient_s_info() {
         MedunaUserPojo medunaUserPojo = new MedunaUserPojo("anonymousUser", "2022-04-07T14:00:05.828549Z", 55224, "barb.gaylord", "Eli", "Wuckert", "vaughn.donnelly@yahoo.com", true, "en", null, null, "699-50-3044");
         MedunaPatientPojo expectedData = new MedunaPatientPojo("anonymousUser", "2022-04-07T14:00:00.206137Z", 55902, "Eli", "Wuckert", null, "455-455-5555", null, null, null, "teodoro.olson@yahoo.com", null, medunaUserPojo, null, null, null, null);
+       // System.out.println("expectedData = " + expectedData);
         MedunaPatientPojo actualData = response.as(MedunaPatientPojo.class);
         response.prettyPrint();
         assertEquals(expectedData.getCreatedBy(), actualData.getCreatedBy());
@@ -63,5 +64,11 @@ public class US15_apiStepDef extends MedunaBaseUrl {
         assertEquals(actualDataasMap.get("createdDate"), expectedDat.get("createdDate"));
         assertEquals(medunaUser.get("createdBy"), ((Map) actualDataasMap.get("user")).get("createdBy"));
 
+    }
+
+    @Then("User validates that patient http status number is {int}")
+    public void userValidatesThatPatientHttpStatusNumberIs(Integer expectedStatusCode) {
+        Integer actualStatusCode = response.getStatusCode();
+        assertEquals(expectedStatusCode,actualStatusCode);
     }
 }
