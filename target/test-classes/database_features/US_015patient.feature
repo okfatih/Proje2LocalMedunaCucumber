@@ -1,12 +1,15 @@
 Feature: database test
 
-  @DBtest
-  Scenario Outline: user db test
-
+  Scenario Outline: user verifies patient's info
     Given user sets the connection
     Then  user gets all registered data "<query>" and "<columnName>"
-    Then  user verifies the user credentials
+
 
     Examples: test data
       | query                  |columnName |
-      | select * from jhi_user | ssn        |
+      | select * from patient | blood_group       |
+
+
+
+
+

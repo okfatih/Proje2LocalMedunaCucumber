@@ -4,7 +4,7 @@ Feature: database test
   Scenario Outline: user db test
 
     Given user sets the connection
-    Then  user get all registered data "<query>" and "<columnName>"
+    Then  user gets all registered data "<query>" and "<columnName>"
     Then  user verifies the user credentials
 
     Examples: test data
