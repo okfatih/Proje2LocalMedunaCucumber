@@ -3,18 +3,18 @@ package pojos;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CountryOuterPojo {
+public class CountryStateOuterPojo {
     private  Integer id;
     private  String name;
-    private CountryInnerPojo country;
+    private CountryStateInnerPojo country;
 
-    public CountryOuterPojo(Integer id, String name, CountryInnerPojo country) {
+    public CountryStateOuterPojo(Integer id, String name, CountryStateInnerPojo country) {
         this.id = id;
         this.name = name;
         this.country = country;
     }
 
-    public CountryOuterPojo() {
+    public CountryStateOuterPojo() {
     }
 
     public Integer getId() {
@@ -33,11 +33,11 @@ public class CountryOuterPojo {
         this.name = name;
     }
 
-    public CountryInnerPojo getCountry() {
+    public CountryStateInnerPojo getCountry() {
         return country;
     }
 
-    public void setCountry(CountryInnerPojo country) {
+    public void setCountry(CountryStateInnerPojo country) {
         this.country = country;
     }
 

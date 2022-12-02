@@ -4,8 +4,8 @@ import base_urls.MedunaBaseUrl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
-import pojos.CountryInnerPojo;
-import pojos.CountryOuterPojo;
+import pojos.CountryStateInnerPojo;
+import pojos.CountryStateOuterPojo;
 import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
@@ -36,10 +36,10 @@ public class US28_apiStepDef extends MedunaBaseUrl {
 
     @Then("User validates the cs-state's info")
     public void user_validates_the_cs_state_s_info() {
-        CountryInnerPojo country = new CountryInnerPojo(1201, "Türkiye");
-        CountryOuterPojo expectedData = new CountryOuterPojo(1255, "İzmir", country);
+        CountryStateInnerPojo country = new CountryStateInnerPojo(1201, "Türkiye");
+        CountryStateOuterPojo expectedData = new CountryStateOuterPojo(1255, "İzmir", country);
 
-        CountryOuterPojo actualData = ObjectMapperUtils.convertJsontoJava(response.asString(), CountryOuterPojo.class);
+        CountryStateOuterPojo actualData = ObjectMapperUtils.convertJsontoJava(response.asString(), CountryStateOuterPojo.class);
         System.out.println("expectedData = " + expectedData);
         System.out.println("actualData = " + actualData);
         assertEquals(expectedData.getId(),actualData.getId());

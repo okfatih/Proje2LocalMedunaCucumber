@@ -22,9 +22,10 @@ public class US15_apiStepDef extends MedunaBaseUrl {
     @Given("User gets the patient info whoose id is {int}")
     public void user_gets_the_patient_info_whoose_id_is(Integer id) {
 
+
         response = given()
 
-                .headers("Authorization", "Bearer " + generateToken()).when().get("https://medunna.com/api/patients/" + id);
+              .headers("Authorization", "Bearer " + generateToken()).when().get("https://medunna.com/api/patients/" + id);
         response.prettyPrint();
 
     }

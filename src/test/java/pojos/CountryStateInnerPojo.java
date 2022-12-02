@@ -1,15 +1,15 @@
 package pojos;
 
-public class CountryInnerPojo {
+public class CountryStateInnerPojo {
     private Integer id;
     private String name;
 
-    public CountryInnerPojo(Integer id, String name) {
+    public CountryStateInnerPojo(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public CountryInnerPojo() {
+    public CountryStateInnerPojo() {
     }
 
     public Integer getId() {
