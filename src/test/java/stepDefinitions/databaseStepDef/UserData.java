@@ -3,16 +3,23 @@ package stepDefinitions.databaseStepDef;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import pages.US15;
+import pojos.MedunaPatientPojo;
+
 import utilities.DataBaseUtility;
 
 import javax.xml.crypto.Data;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
+import static utilities.DataBaseUtility.patientPojosu;
 
 public class UserData {
+    MedunaPatientPojo pojomuz = new MedunaPatientPojo();
     List<Object> actualData;
     List<List<Object>> arananHasta;
+
+    List<Object> beklenenData;
 
     @Given("user sets the connection")
     public void user_sets_the_connection() {
@@ -21,32 +28,31 @@ public class UserData {
 
     }
 
-    @Then("user gets all registered data {string} and {string}")
-    public void user_gets_all_registered_data_and(String query, String columnName) {
-        actualData = DataBaseUtility.getColumnData(query, columnName);
-        System.out.println(actualData);
-    }
 
     @Then("user verifies the user credentials")
     public void user_verifies_the_user_credentials() {
-        assertTrue(actualData.contains("411-73-3731"));
+        //assertTrue(actualData.contains("411-73-3731"));
+        assertTrue(actualData.contains(pojomuz.getFirstName()));
+        String ad = pojomuz.getFirstName();
+        System.out.println("ad = " + ad);
+
 
     }
 
     @Then("user gets all the required data {string}")
     public void userGetsAllTheRequiredData(String query, String columnName) {
         actualData = DataBaseUtility.getColumnData(query, columnName);
-        System.out.println(actualData);
+        //   System.out.println(actualData);
 
     }
 
     @And("user executes the {string}")
     public void userExecutesThe(String query) {
 
-     //   DataBaseUtility.executeQuery(query);
+        //   DataBaseUtility.executeQuery(query);
         arananHasta = DataBaseUtility.getQueryResultList(query);
 
-        System.out.println("result = " + arananHasta);
+        //       System.out.println("result = " + arananHasta);
 
     }
 
@@ -63,7 +69,25 @@ public class UserData {
 
         String query3 = "select * from patient";
 
-        List<Object> allPatientIds = DataBaseUtility.getColumnData(query3,"id");
+        List<Object> allPatientIds = DataBaseUtility.getColumnData(query3, "id");
         assertTrue(allPatientIds.contains(arananHasta.get(0).get(0)));
+    }
+
+    @And("user gets the new registered user via {string} and {string}")
+    public void userGetsTheNewRegisteredUserViaAnd(String query, String columnName) {
+        beklenenData = DataBaseUtility.getColumnData(query, columnName);
+        System.out.println("beklenenData = " + beklenenData);
+
+    }
+
+    @Then("user credentials is verified")
+    public void userCredentialsIsVerified() {
+    }
+
+
+    @Then("user validates the creation of patient {string}")
+    public void userValidatesTheCreationOfPatient(String name) {
+        assertTrue(actualData.contains(name));
+        System.out.println("name = " + name);
     }
 }

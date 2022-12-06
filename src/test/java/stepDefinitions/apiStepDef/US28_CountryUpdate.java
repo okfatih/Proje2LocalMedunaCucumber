@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import pojos.CountryPojo;
+import pojos.MedunnaCountryPojo;
 
 import static io.restassured.RestAssured.given;
 import static utilities.Authentication.generateToken;
@@ -25,7 +25,7 @@ public class US28_CountryUpdate {
     public void user_updates_the_country_name() {
      //Pat
 
-        CountryPojo expectedData = new CountryPojo(null,"Kelkit");
+        MedunnaCountryPojo expectedData = new MedunnaCountryPojo(null,"Kelkit");
         response = given()
                 .headers("Authorization", "Bearer " + generateToken())
                 .contentType(ContentType.JSON)

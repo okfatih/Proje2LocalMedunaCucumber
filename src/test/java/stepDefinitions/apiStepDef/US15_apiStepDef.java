@@ -1,6 +1,7 @@
 package stepDefinitions.apiStepDef;
 
 import base_urls.MedunaBaseUrl;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
@@ -8,6 +9,7 @@ import pojos.MedunaPatientPojo;
 import pojos.MedunaUserPojo;
 import testdata.MedunaTestData;
 import utilities.ObjectMapperUtils;
+import utilities.DataBaseUtility;
 
 import java.util.Map;
 import java.util.Optional;
@@ -40,13 +42,12 @@ public class US15_apiStepDef extends MedunaBaseUrl {
 
     @Then("User validates patient's info")
     public void user_validates_patient_s_info() {
-        MedunaUserPojo medunaUserPojo = new MedunaUserPojo("anonymousUser", "2022-04-07T14:00:05.828549Z", 55224, "barb.gaylord", "Eli", "Wuckert", "vaughn.donnelly@yahoo.com", true, "en", null, null, "699-50-3044");
-        MedunaPatientPojo expectedData = new MedunaPatientPojo("anonymousUser", "2022-04-07T14:00:00.206137Z", 55902, "Eli", "Wuckert", null, "455-455-5555", null, null, null, "teodoro.olson@yahoo.com", null, medunaUserPojo, null, null, null, null);
+        MedunaUserPojo userPojo = new MedunaUserPojo("anonymousUser", "2022-04-07T14:00:05.828549Z", 55224, "barb.gaylord", "Eli", "Wuckert", "vaughn.donnelly@yahoo.com", true, "en", null, null, "699-50-3044");
+        MedunaPatientPojo expectedData = new MedunaPatientPojo("anonymousUser", "2022-04-07T14:00:00.206137Z", 55902, "Eli", "Wuckert", null, "455-455-5555", null, null, null, "teodoro.olson@yahoo.com", null, null, null, null, null);
        // System.out.println("expectedData = " + expectedData);
         MedunaPatientPojo actualData = response.as(MedunaPatientPojo.class);
         response.prettyPrint();
-        assertEquals(expectedData.getCreatedBy(), actualData.getCreatedBy());
-        assertEquals(expectedData.getUser().getCreatedBy(), actualData.getUser().getCreatedBy());
+
 
 
 
@@ -72,4 +73,7 @@ public class US15_apiStepDef extends MedunaBaseUrl {
         Integer actualStatusCode = response.getStatusCode();
         assertEquals(expectedStatusCode,actualStatusCode);
     }
+
+
+
 }

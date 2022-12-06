@@ -5,9 +5,9 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
 public class MedunaBaseUrl {
-    protected RequestSpecification spec;
+    public static  RequestSpecification spec;
     @Before
-    public void setup(){
+    public static void medunnaSetup(){
         spec = new RequestSpecBuilder().setBaseUri("https://www.medunna.com/api").build();
     }
 

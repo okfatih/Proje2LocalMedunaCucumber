@@ -2,80 +2,101 @@ package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
+
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    public static ThreadLocal<String> browsers = new ThreadLocal<>();
 
-    /*
-    Testlerimizi çalıştırdığımızda her seferinde yeni driver
-    oluşturduğu için her test methodu için yeni driver bir pencere
-    açıyor.
-    Eğer drivera bir değer atanmamışsa yani driver  == null ise
-    bir kere driver'ı çalıştır, diyerek bir kere if içini çalıştıracaktır
-    Ve driver artık bir kere çalıştığı için ve değer atandığı için null
-    olmayacak ve direkt return edecek ve diğer  testlerimiz aynı pencere
-    üzerinde çalışacaktır
+    private static int timeout = 5;
+    private static Wait<WebDriver> shortWait;
+    /**
+     * this method returns the threadlocal webDriver
+     *
+     * @return WebDriver
      */
-    private Driver(){  //Driver classı başka classlardan obje oluşturularak kullanılmasın diye
-        // private bir constructor oluşturduk
-
-    }
-    static WebDriver driver;
     public static WebDriver getDriver() {
-        /*
-        Eğer if atmasak bir test sayfasında 3 web sitesi çalıştırdığımızda
-        her bir web sitesi için yeniden driver = new ChromeDriver()
-        diyeceğinden 3 darklı pencere açılacak, fakat biz yeni pencere
-        açılmasını sadece driver null olduğumu durumda istersek testimiz çalışmaya
-        başladığında driver null olacağından ilk pencere ancılır, ikinci kez çalıştığında
-        driver null olmadığından açılan pencereden diğer siteye gitmeye devam eder
-         */
-        if (driver == null) {
-            switch (ConfigReader.getProperty("browser")){
+
+        if (browsers.get() == null) {
+            browsers.set("chrome");
+        }
+
+        if (driver.get() == null) {
+            switch (browsers.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-                case "safari":
-                    WebDriverManager.safaridriver().setup();
-                    driver=new SafariDriver();
+                    driver.set(new ChromeDriver());
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver=new FirefoxDriver();
+                    driver.set(new FirefoxDriver());
                     break;
-                case "headless-chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                case "ie":
+                case "internet explorer":
+                    WebDriverManager.iedriver().setup();
+                    driver.set(new InternetExplorerDriver());
+                    break;
+                case "edge":
+                case "msedge":
+                    WebDriverManager.edgedriver().setup();
+                    driver.set(new EdgeDriver());
+                    break;
+                case "opera":
+                    WebDriverManager.operadriver().setup();
+                    driver.set(new OperaDriver());
+                    break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-
+                    driver.set(new ChromeDriver());
+                    break;
             }
 
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         }
 
-        return driver;
+        driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get().manage().window().maximize();
+
+        return driver.get();
     }
+
+
+    /**
+     * quit the threadLocal WebDriver
+     */
     public static void closeDriver() {
-        if (driver != null) {
-            driver.close();
-            driver=null;
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.set(null);
         }
     }
-    public static void quitDriver(){
-        if (driver!=null){ //Driver a bir değer atanmışsa kapat
-            driver.quit();
-            driver=null; //Driver ı kapattın sonra testte yeni bir site açılacaksa driverın tekrar null olması lazım
+    public void waitAndSendText(WebElement element, String text, int timeout) throws InterruptedException {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.sendKeys(text);
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
         }
-
     }
-
+    public void waitAndSendTextWithDefaultTime(WebElement element, String text) throws InterruptedException {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.sendKeys(text);
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
+    }
 }

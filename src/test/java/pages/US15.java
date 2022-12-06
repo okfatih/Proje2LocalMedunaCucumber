@@ -15,6 +15,39 @@ public class US15 {
     @FindBy(xpath = "//li[@id='account-menu']//following::a[@href=\"/account/register\"]")
     public WebElement accounreg;
 
+    @FindBy (css = "#patient-phone")
+    public WebElement patientPhone;
+
+    @FindBy (css = "#patient-bloodGroup")
+    public WebElement patientBloodG;
+
+    @FindBy (css = "#patient-cstate")
+    public WebElement patientState;
+
+    @FindBy (css = "#patient-adress")
+    public WebElement patientAddress;
+
+    @FindBy (css = "#patient-description")
+    public WebElement description;
+
+    @FindBy (css = "#patient-country")
+    public WebElement patientsCountry;
+
+
+
+
+
+
+
+    @FindBy (css = "#patient-gender")
+    public WebElement patientGender;
+
+    @FindBy (xpath = "//span[text()='Items&Titles']")
+    public WebElement itemsTitles;
+
+    @FindBy (xpath = "//div[@class='dropdown-menu dropdown-menu-right show']/a[contains(@href,'/pat')]")
+    public WebElement patient;
+
     @FindBy(xpath = "//*[@id='account-menu']")
     public WebElement SignIn;
 
@@ -50,6 +83,8 @@ public class US15 {
 
     @FindBy(xpath = "//*[@id=\"admin-menu\"]")
     public WebElement adminMenu;
+    @FindBy (css = "#jh-create-entity")
+    public WebElement createPatient;
 
     @FindBy(xpath = "//*[text()='Create a new user']")
     public WebElement createUser;
@@ -63,7 +98,10 @@ public class US15 {
     @FindBy(xpath = "//input[@name='login']")
     public WebElement formLogin;
 
-    @FindBy(css = "#lastName")
+    @FindBy (css = "#patient-birthDate")
+    public WebElement patientBirthdate;
+
+    @FindBy(css = "#patient-lastName")
     public WebElement lastname;
 
     @FindBy (css = "#email")

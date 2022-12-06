@@ -1,5 +1,7 @@
 package utilities;
 
+import pojos.MedunaPatientPojo;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +12,7 @@ public class DataBaseUtility {
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
+    public static MedunaPatientPojo patientPojosu;
 
     public static void createConnection() {
 //        String url = ConfigurationReader.getProperty("database_url");

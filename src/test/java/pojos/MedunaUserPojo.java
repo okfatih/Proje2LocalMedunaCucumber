@@ -16,11 +16,11 @@ public class MedunaUserPojo {
     private  String email;
     private Boolean activated;
     private  String langKey;
-    private  Object imageUrl;
-    private  Object resetDate;
+    private  String imageUrl;
+    private  String resetDate;
     private String ssn;
 
-    public MedunaUserPojo(String createdBy, String createdDate, Integer id, String login, String firstName, String lastName, String email, Boolean activated, String langKey, Object imageUrl, Object resetDate, String ssn) {
+    public MedunaUserPojo(String createdBy, String createdDate, Integer id, String login, String firstName, String lastName, String email, Boolean activated, String langKey, String imageUrl, String resetDate, String ssn) {
 
         this.createdBy = createdBy;
         this.createdDate = createdDate;
@@ -37,14 +37,6 @@ public class MedunaUserPojo {
     }
 
     public MedunaUserPojo() {
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
     }
 
     public String getCreatedDate() {
@@ -111,19 +103,19 @@ public class MedunaUserPojo {
         this.langKey = langKey;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(Object imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    public Object getResetDate() {
+    public String getResetDate() {
         return resetDate;
     }
 
-    public void setResetDate(Object resetDate) {
+    public void setResetDate(String resetDate) {
         this.resetDate = resetDate;
     }
 
@@ -147,8 +139,8 @@ public class MedunaUserPojo {
                 ", email='" + email + '\'' +
                 ", activated=" + activated +
                 ", langKey='" + langKey + '\'' +
-                ", imageUrl=" + imageUrl +
-                ", resetDate=" + resetDate +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", resetDate='" + resetDate + '\'' +
                 ", ssn='" + ssn + '\'' +
                 '}';
     }

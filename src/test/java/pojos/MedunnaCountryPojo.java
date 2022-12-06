@@ -1,14 +1,14 @@
 package pojos;
 
-public class CountryPojo {
+public class MedunnaCountryPojo {
     private Integer id;
     private String name;
 
-    public CountryPojo(Integer id, String name) {
+    public MedunnaCountryPojo(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
-    public CountryPojo(){
+    public MedunnaCountryPojo(){
 
     }
 

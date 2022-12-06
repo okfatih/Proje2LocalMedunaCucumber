@@ -18,13 +18,12 @@ public class MedunaPatientPojo {
     private String adress;
     private String email;
     private String description;
-    private MedunaUserPojo user;
-    private Object appointments;
+    private MedunaUserPojo userPojo;
     private Object inPatients;
     private Object country;
     private Object cstate;
 
-    public MedunaPatientPojo(String createdBy, String createdDate, Integer id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, MedunaUserPojo user, Object appointments, Object inPatients, Object country, Object cstate) {
+    public MedunaPatientPojo(String createdBy, String createdDate, Integer id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, MedunaUserPojo userPojo, Object inPatients, Object country, Object cstate) {
 
         this.createdBy = createdBy;
         this.createdDate = createdDate;
@@ -38,8 +37,7 @@ public class MedunaPatientPojo {
         this.adress = adress;
         this.email = email;
         this.description = description;
-        this.user = user;
-        this.appointments = appointments;
+        this.userPojo = userPojo;
         this.inPatients = inPatients;
         this.country = country;
         this.cstate = cstate;
@@ -144,20 +142,12 @@ public class MedunaPatientPojo {
         this.description = description;
     }
 
-    public MedunaUserPojo getUser() {
-        return user;
+    public MedunaUserPojo getUserPojo() {
+        return userPojo;
     }
 
-    public void setUser(MedunaUserPojo user) {
-        this.user = user;
-    }
-
-    public Object getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(Object appointments) {
-        this.appointments = appointments;
+    public void setUserPojo(MedunaUserPojo userPojo) {
+        this.userPojo = userPojo;
     }
 
     public Object getInPatients() {
@@ -199,8 +189,7 @@ public class MedunaPatientPojo {
                 ", adress='" + adress + '\'' +
                 ", email='" + email + '\'' +
                 ", description='" + description + '\'' +
-                ", user=" + user +
-                ", appointments=" + appointments +
+                ", userPojo=" + userPojo +
                 ", inPatients=" + inPatients +
                 ", country=" + country +
                 ", cstate=" + cstate +

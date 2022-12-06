@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.databaseStepDef;
 
 import org.junit.Test;
 import utilities.DataBaseUtility;

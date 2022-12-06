@@ -30,6 +30,7 @@ public class US28_apiStepDef extends MedunaBaseUrl {
 
         Integer actualStatusCode = response.getStatusCode();
         assertEquals(expectedStatusCode, actualStatusCode);
+        response.prettyPrint();
 
     }
 
