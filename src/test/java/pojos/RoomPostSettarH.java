@@ -1,21 +1,41 @@
 package pojos;
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RoomPost {
+public class RoomPostSettarH {
+
+    private String description;
+    private int price;
     private int roomNumber;
     private String roomType;
     private boolean status;
-    private int price;
 
-    public RoomPost(int roomNumber, String roomType, boolean status, int price) {
+    public RoomPostSettarH() {
+    }
+
+    public RoomPostSettarH(String description, int price, int roomNumber, String roomType, boolean status) {
+        this.description = description;
+        this.price = price;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.status = status;
-        this.price = price;
     }
 
-    public RoomPost() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getRoomNumber() {
@@ -42,22 +62,4 @@ public class RoomPost {
         this.status = status;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "RoomPost{" +
-                "roomNumber=" + roomNumber +
-                ", roomType='" + roomType + '\'' +
-                ", status=" + status +
-                ", price=" + price +
-                '}';
-    }
 }
-

@@ -19,13 +19,14 @@ public class MedunnaRoomPojo {
     public String createdBy;
     public String createdDate;
     public String description;
-    public Integer id;
-    public Integer price;
-    public Integer roomNumber;
+    public int id;
+    public int price;
+    public int roomNumber;
     public String roomType;
     public Boolean status;
 
-    public MedunnaRoomPojo(String createdBy, String createdDate, String description, Integer id, Integer price, Integer roomNumber, String roomType, Boolean status) {
+    public MedunnaRoomPojo(String createdBy, String createdDate, String description, int id, int price, int roomNumber, String roomType, Boolean status) {
+
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.description = description;
@@ -63,27 +64,27 @@ public class MedunnaRoomPojo {
         this.description = description;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Integer getRoomNumber() {
+    public int getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(Integer roomNumber) {
+    public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
 

@@ -29,7 +29,7 @@ public class Hooks {
     public void appointment() {
         Driver.getDriver().get("https://medunna.com");
     }
-    @Before(order=4, value="@APIRoomsGet")
+    @Before(order=4, value="@PostApiRequest")
     public void beforeApi() {
         medunnaSetup();
     }
