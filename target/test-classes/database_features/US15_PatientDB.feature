@@ -6,8 +6,8 @@ Feature: database test
     Then user validates the creation of patient "<name>"
 
     Examples: test data
-      | query                 | columnName  |name|
-      | select * from patient | first_name |  Omer   |
+      | query                 | columnName | name   |
+      | select * from patient | first_name | Crespo |
 
 
 

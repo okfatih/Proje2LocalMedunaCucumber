@@ -6,38 +6,68 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class RegistrationPage {
-    public RegistrationPage(){
+    public RegistrationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy (name ="firstName")
+    @FindBy (css = "#appoDate")
+    public WebElement DateAppointment;
+
+    @FindBy (xpath = "(//a[@class='dropdown-item'])[1]")
+    public WebElement myAppo;
+
+    @FindBy (xpath = "//*[text()='Sign out']")
+    public WebElement signOut;
+
+    @FindBy (css = "#phone")
+    public WebElement phoneTextBox;
+
+    @FindBy (css = "#register-submit")
+    public  WebElement registerSubmit;
+
+    @FindBy(css = "#entity-menu")
+    public WebElement myPages;
+
+    @FindBy(name = "firstName")
     public WebElement firstNametextBox;
 
-    @FindBy (name ="lastName")
+    @FindBy(xpath = "//span[text()='Make an Appointment']")
+    public WebElement makenAnAppointment;
+
+    @FindBy(xpath = "//span[text()='Sign in']")
+    public WebElement signInIcon;
+
+
+    @FindBy(css = "#password")
+    public WebElement passWord;
+
+    @FindBy(name = "lastName")
     public WebElement lastnameTextBox;
 
-    @FindBy (name = "username")
-        public WebElement usernameTextbox;
+    @FindBy(name = "username")
+    public WebElement usernameTextbox;
 
-    @FindBy (id="email")
+    @FindBy(id = "email")
     public WebElement emailTextBox;
 
-    @FindBy (name = "firstPassword")
+    @FindBy(name = "firstPassword")
     public WebElement firstPassTextBox;
 
-    @FindBy (name = "secondPassword")
+    @FindBy(name = "secondPassword")
     public WebElement newPassTextBox;
 
-    @FindBy (id="register-submit")
+    @FindBy(id = "register-submit")
     public WebElement registerButton;
 
-    @FindBy (xpath = "//select[@id='patient-gender']")
+    @FindBy(xpath = "//select[@id='patient-gender']")
     public WebElement genderButtonu;
 
-    @FindBy (xpath = "//input[@id='patient-birthDate']")
+    @FindBy(xpath = "//input[@id='patient-birthDate']")
     public WebElement calendar;
 
 
+    @FindBy(css = "#account-menu")
+    public WebElement accountMenu;
 
-
-
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement signInSubmit;
 }

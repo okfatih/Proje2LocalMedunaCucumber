@@ -23,10 +23,9 @@ public class MedunnaRoomPojo {
     public int price;
     public int roomNumber;
     public String roomType;
-    public Boolean status;
+    public boolean status;
 
-    public MedunnaRoomPojo(String createdBy, String createdDate, String description, int id, int price, int roomNumber, String roomType, Boolean status) {
-
+    public MedunnaRoomPojo(String createdBy, String createdDate, String description, int id, int price, int roomNumber, String roomType, boolean status) {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.description = description;
@@ -96,11 +95,11 @@ public class MedunnaRoomPojo {
         this.roomType = roomType;
     }
 
-    public Boolean getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

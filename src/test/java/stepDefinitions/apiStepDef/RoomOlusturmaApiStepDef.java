@@ -1,5 +1,7 @@
 package stepDefinitions.apiStepDef;
 
+import com.github.javafaker.Faker;
+import com.google.gson.Gson;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
@@ -9,8 +11,10 @@ import org.testng.asserts.SoftAssert;
 import pojos.MedunnaRoomPojo;
 import pojos.RoomPost;
 import pojos.RoomPostSettarH;
+import utilities.ObjectMapperUtils;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static base_urls.MedunaBaseUrl.spec;
 import static base_urls.MedunaBaseUrl.spec1;
@@ -20,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static utilities.Authentication.generateToken;
 
 public class RoomOlusturmaApiStepDef {
+    Faker faker;
     Response response;
     RoomPostSettarH room = new RoomPostSettarH();
 
@@ -32,14 +37,14 @@ public class RoomOlusturmaApiStepDef {
         //İbrahim hocayla beraber oluyşturuduğumuz pojodan room data oluşturma
 
         room.setStatus(true);
-        room.setRoomNumber(27489);
+        room.setRoomNumber(274325);
         room.setRoomType("TWIN");
-        room.setDescription("Waikiki");
-        room.setPrice(1251452);
+        room.setDescription("I wouldn't even dare");
+        room.setPrice(1567123);
 
         response = given()
                 .headers("Authorization", "Bearer " + generateToken(), "Content-Type", ContentType.JSON,
-                       "Accept", ContentType.JSON) //Buradaki content type Jsonlar  authorization için aşağıdaki ise post işlemi için
+                        "Accept", ContentType.JSON) //Buradaki content type Jsonlar  authorization için aşağıdaki ise post işlemi için
                 .spec(spec1).contentType(ContentType.JSON).body(room).when().post("/{first}/{second}");
 
 
@@ -79,16 +84,36 @@ public class RoomOlusturmaApiStepDef {
         //Validation 4
         // Soft assertion
         MedunnaRoomPojo actualRoom = response.as(MedunnaRoomPojo.class);
-       SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(room.getRoomNumber(),actualRoom.getRoomNumber());
-        softAssert.assertEquals(room.getRoomType(),actualRoom.getRoomType());
-        softAssert.assertEquals(room.getPrice(),actualRoom.getPrice());
-        softAssert.assertEquals(room.getDescription(),actualRoom.getDescription());
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(room.getRoomNumber(), actualRoom.getRoomNumber());
+        softAssert.assertEquals(room.getRoomType(), actualRoom.getRoomType());
+        softAssert.assertEquals(room.getPrice(), actualRoom.getPrice());
+        softAssert.assertEquals(room.getDescription(), actualRoom.getDescription());
 
-        System.out.println("Description from Pojo room " + actualRoom.getDescription());
-        System.out.println("From Map = " + actualData.get("description"));
+        // System.out.println("Description from Pojo room " + actualRoom.getDescription());
+        // System.out.println("From Map = " + actualData.get("description"));
+        softAssert.assertAll();
 
+        //Validation 5
+        // Object Mapper ile
 
+        MedunnaRoomPojo actualDataWithObjectMapper = ObjectMapperUtils.convertJsontoJava(response.asString(), MedunnaRoomPojo.class);
+        System.out.println("actualDataWithObjectMapper = " + actualDataWithObjectMapper);
+        assertEquals(actualDataWithObjectMapper.getDescription(),room.getDescription());
+        assertEquals(actualDataWithObjectMapper.getPrice(),room.getPrice());
+        assertEquals(actualDataWithObjectMapper.isStatus(),room.isStatus());
+        assertEquals(actualDataWithObjectMapper.getRoomNumber(),room.getRoomNumber());
+        assertEquals(actualDataWithObjectMapper.getRoomType(),room.getRoomType());
+
+        //Validation 6
+        // Assertion with Gson
+        Gson gson = new Gson();
+
+        RoomPostSettarH gsonActualData = gson.fromJson(response.asString(),RoomPostSettarH.class);
+
+        assertEquals(gsonActualData.getRoomType(),room.getRoomType());
+        assertEquals(gsonActualData.getPrice(),room.getPrice());
+        assertEquals(gsonActualData.getDescription(),room.getDescription());
     }
 
 }

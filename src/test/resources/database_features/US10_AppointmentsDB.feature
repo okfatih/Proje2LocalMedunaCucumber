@@ -1,9 +1,10 @@
+@US10_DB
 Feature: Appointment verification via database
 
   Background: database connection
     Given user sets the connection
 
-  @US10_DB
+
   Scenario Outline: All appointments in data base are in the list
 
     Then  user gets all the registered appointments "<query>"

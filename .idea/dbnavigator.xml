@@ -44,14 +44,16 @@ select * from "public".c_state where
  id =  1255 
  select * from "public".country where
     "id" = 361381
-select * from "public".appointment 
+select id from "public".appointment where 
+patient_id = 3362
 
 
-select * from "public".appointment where columnname = 'id'
+select * from "public".appointment where id = 5604
 
 select * from "public".jhi_user where ssn = '034-02-5348'
 
 select  * from "public".patient
+
 
 
 

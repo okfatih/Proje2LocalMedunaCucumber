@@ -112,7 +112,8 @@ public class DataBaseUtility {
      * @param column
      * @return list of values of a single column from the result set
      */
-    public static List<Object> getColumnData(String query, String column) {
+    public static List<Object>
+    getColumnData(String query, String column) {
         executeQuery(query);
         List<Object> rowList = new ArrayList<>();
         ResultSetMetaData rsmd;

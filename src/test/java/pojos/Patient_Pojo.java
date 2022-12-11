@@ -1,13 +1,12 @@
 package pojos;
 
-import lombok.Data;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MedunaPatientPojo {
+public class Patient_Pojo {
     private String createdBy;
-    private String createdDate;
+    private String CreatedDate;
     private int id;
     private String firstName;
     private String lastName;
@@ -18,15 +17,15 @@ public class MedunaPatientPojo {
     private String adress;
     private String email;
     private String description;
-    private MedunaUserPojo user2Pojo;
+    private UserPojo user;
     private String inPatients;
-    private String country;
+    private MedunnaCountryPojo country;
     private String cstate;
 
-    public MedunaPatientPojo(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, MedunaUserPojo user2Pojo, String inPatients, String country, String cstate) {
+    public Patient_Pojo(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, UserPojo user, String inPatients, MedunnaCountryPojo country, String cstate) {
 
         this.createdBy = createdBy;
-        this.createdDate = createdDate;
+        CreatedDate = createdDate;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,13 +36,13 @@ public class MedunaPatientPojo {
         this.adress = adress;
         this.email = email;
         this.description = description;
-        this.user2Pojo = user2Pojo;
+        this.user = user;
         this.inPatients = inPatients;
         this.country = country;
         this.cstate = cstate;
     }
 
-    public MedunaPatientPojo() {
+    public Patient_Pojo() {
     }
 
     public String getCreatedBy() {
@@ -55,11 +54,11 @@ public class MedunaPatientPojo {
     }
 
     public String getCreatedDate() {
-        return createdDate;
+        return CreatedDate;
     }
 
     public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
+        CreatedDate = createdDate;
     }
 
     public int getId() {
@@ -142,12 +141,12 @@ public class MedunaPatientPojo {
         this.description = description;
     }
 
-    public MedunaUserPojo getUser2Pojo() {
-        return user2Pojo;
+    public UserPojo getUser() {
+        return user;
     }
 
-    public void setUser2Pojo(MedunaUserPojo user2Pojo) {
-        this.user2Pojo = user2Pojo;
+    public void setUser(UserPojo user) {
+        this.user = user;
     }
 
     public String getInPatients() {
@@ -158,11 +157,11 @@ public class MedunaPatientPojo {
         this.inPatients = inPatients;
     }
 
-    public String  getCountry() {
+    public MedunnaCountryPojo getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(MedunnaCountryPojo country) {
         this.country = country;
     }
 
@@ -176,9 +175,9 @@ public class MedunaPatientPojo {
 
     @Override
     public String toString() {
-        return "MedunaPatientPojo{" +
+        return "PatientPojo{" +
                 "createdBy='" + createdBy + '\'' +
-                ", createdDate='" + createdDate + '\'' +
+                ", CreatedDate='" + CreatedDate + '\'' +
                 ", id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -186,13 +185,13 @@ public class MedunaPatientPojo {
                 ", phone='" + phone + '\'' +
                 ", gender='" + gender + '\'' +
                 ", bloodGroup='" + bloodGroup + '\'' +
-                ", adress=" + adress +
+                ", adress='" + adress + '\'' +
                 ", email='" + email + '\'' +
-                ", description=" + description +
-                ", user2Pojo=" + user2Pojo +
-                ", inPatients=" + inPatients +
-                ", country=" + country +
-                ", cstate=" + cstate +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", inPatients='" + inPatients + '\'' +
+                ", country='" + country + '\'' +
+                ", cstate='" + cstate + '\'' +
                 '}';
     }
 }

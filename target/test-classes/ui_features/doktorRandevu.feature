@@ -9,4 +9,4 @@ Feature: Doktor randevulari
     Then Doctor fills in the correct credentials
     And Doctor clicks on my pages and goes to appointments
     Then  Doctor verifies the appointment titles
-    And Doctor gets all the values printed under "Start DateTime"
+    And Doctor gets all the values printed under "Start DateTime

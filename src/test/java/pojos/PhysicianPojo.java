@@ -1,11 +1,10 @@
 package pojos;
 
-import lombok.Data;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MedunaPatientPojo {
+public class PhysicianPojo {
     private String createdBy;
     private String createdDate;
     private int id;
@@ -16,15 +15,16 @@ public class MedunaPatientPojo {
     private String gender;
     private String bloodGroup;
     private String adress;
-    private String email;
     private String description;
-    private MedunaUserPojo user2Pojo;
-    private String inPatients;
-    private String country;
+    private UserPojo user;
+    private String speciality;
+    private MedunnaCountryPojo country;
     private String cstate;
+    private double examFee;
+    private String image;
+    private String imageContentType;
 
-    public MedunaPatientPojo(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String email, String description, MedunaUserPojo user2Pojo, String inPatients, String country, String cstate) {
-
+    public PhysicianPojo(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress,  String description, UserPojo user, String speciality, MedunnaCountryPojo country, String cstate, double examFee, String image, String imageContentType) {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.id = id;
@@ -35,15 +35,17 @@ public class MedunaPatientPojo {
         this.gender = gender;
         this.bloodGroup = bloodGroup;
         this.adress = adress;
-        this.email = email;
         this.description = description;
-        this.user2Pojo = user2Pojo;
-        this.inPatients = inPatients;
+        this.user = user;
+        this.speciality = speciality;
         this.country = country;
         this.cstate = cstate;
+        this.examFee = examFee;
+        this.image = image;
+        this.imageContentType = imageContentType;
     }
 
-    public MedunaPatientPojo() {
+    public PhysicianPojo() {
     }
 
     public String getCreatedBy() {
@@ -126,14 +128,6 @@ public class MedunaPatientPojo {
         this.adress = adress;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -142,27 +136,27 @@ public class MedunaPatientPojo {
         this.description = description;
     }
 
-    public MedunaUserPojo getUser2Pojo() {
-        return user2Pojo;
+    public UserPojo getUser() {
+        return user;
     }
 
-    public void setUser2Pojo(MedunaUserPojo user2Pojo) {
-        this.user2Pojo = user2Pojo;
+    public void setUser(UserPojo user) {
+        this.user = user;
     }
 
-    public String getInPatients() {
-        return inPatients;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setInPatients(String inPatients) {
-        this.inPatients = inPatients;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
-    public String  getCountry() {
+    public MedunnaCountryPojo getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(MedunnaCountryPojo country) {
         this.country = country;
     }
 
@@ -174,9 +168,33 @@ public class MedunaPatientPojo {
         this.cstate = cstate;
     }
 
+    public double getExamFee() {
+        return examFee;
+    }
+
+    public void setExamFee(double examFee) {
+        this.examFee = examFee;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImageContentType() {
+        return imageContentType;
+    }
+
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+    }
+
     @Override
     public String toString() {
-        return "MedunaPatientPojo{" +
+        return "PhysicianPojo{" +
                 "createdBy='" + createdBy + '\'' +
                 ", createdDate='" + createdDate + '\'' +
                 ", id=" + id +
@@ -186,13 +204,15 @@ public class MedunaPatientPojo {
                 ", phone='" + phone + '\'' +
                 ", gender='" + gender + '\'' +
                 ", bloodGroup='" + bloodGroup + '\'' +
-                ", adress=" + adress +
-                ", email='" + email + '\'' +
-                ", description=" + description +
-                ", user2Pojo=" + user2Pojo +
-                ", inPatients=" + inPatients +
-                ", country=" + country +
-                ", cstate=" + cstate +
+                ", adress='" + adress + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", speciality='" + speciality + '\'' +
+                ", country='" + country + '\'' +
+                ", cstate='" + cstate + '\'' +
+                ", examFee='" + examFee + '\'' +
+                ", image='" + image + '\'' +
+                ", imageContentType='" + imageContentType + '\'' +
                 '}';
     }
 }

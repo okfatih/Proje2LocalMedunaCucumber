@@ -37,6 +37,10 @@ public class Hooks {
     public void beforeRoomApi() {
         medunnaSetup();
     }
+    @Before(value ="@AppointmentGet" )
+    public void beforeAppointmentApi() {
+        medunnaSetup();
+    }
     @Before(value ="@EndTOEnd" )
 //    public void setUpDatabaseConnection() {
 //        DatabaseUtility.createConnection(ConfigReader.getProperty("database_url"),

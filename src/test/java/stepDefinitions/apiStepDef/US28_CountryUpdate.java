@@ -25,7 +25,7 @@ public class US28_CountryUpdate {
     public void user_updates_the_country_name() {
      //Pat
 
-        MedunnaCountryPojo expectedData = new MedunnaCountryPojo(null,"Kelkit");
+        MedunnaCountryPojo expectedData = new MedunnaCountryPojo(123,"Kelkit");
         response = given()
                 .headers("Authorization", "Bearer " + generateToken())
                 .contentType(ContentType.JSON)

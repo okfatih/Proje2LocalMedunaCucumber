@@ -5,7 +5,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class MedunnaPhysicianPojo {
     private String createdBy;
     private String createdDate;
-    private Integer id;
+    private int id;
     private String firstName;
     private String lastName;
     private String birthDate;
@@ -18,11 +18,11 @@ public class MedunnaPhysicianPojo {
     private  String speciality;
     private  MedunnaCountryPojo countryPojo;
     private String cstate;
-    private Integer examfee;
+    private int examFee;
     private  String image;
-    private Object imageContentType;
+    private String imageContentType;
 
-    public MedunnaPhysicianPojo(String createdBy, String createdDate, Integer id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String description, MedunaUserPojo userPojo, String speciality, MedunnaCountryPojo countryPojo, String cstate, Integer examfee, String image, Object imageContentType) {
+    public MedunnaPhysicianPojo(String createdBy, String createdDate, int id, String firstName, String lastName, String birthDate, String phone, String gender, String bloodGroup, String adress, String description, MedunaUserPojo userPojo, String speciality, MedunnaCountryPojo countryPojo, String cstate, int examFee, String image, String  imageContentType) {
 
         this.createdBy = createdBy;
         this.createdDate = createdDate;
@@ -39,7 +39,7 @@ public class MedunnaPhysicianPojo {
         this.speciality = speciality;
         this.countryPojo = countryPojo;
         this.cstate = cstate;
-        this.examfee = examfee;
+        this.examFee = examFee;
         this.image = image;
         this.imageContentType = imageContentType;
     }
@@ -63,11 +63,11 @@ public class MedunnaPhysicianPojo {
         this.createdDate = createdDate;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -167,12 +167,12 @@ public class MedunnaPhysicianPojo {
         this.cstate = cstate;
     }
 
-    public Integer getExamfee() {
-        return examfee;
+    public int getExamfee() {
+        return examFee;
     }
 
-    public void setExamfee(Integer examfee) {
-        this.examfee = examfee;
+    public void setExamfee(int examfee) {
+        this.examFee = examfee;
     }
 
     public String getImage() {
@@ -187,7 +187,7 @@ public class MedunnaPhysicianPojo {
         return imageContentType;
     }
 
-    public void setImageContentType(Object imageContentType) {
+    public void setImageContentType(String imageContentType) {
         this.imageContentType = imageContentType;
     }
 
@@ -208,8 +208,8 @@ public class MedunnaPhysicianPojo {
                 ", userPojo=" + userPojo +
                 ", speciality='" + speciality + '\'' +
                 ", countryPojo=" + countryPojo +
-                ", cstate='" + cstate + '\'' +
-                ", examfee=" + examfee +
+                ", cstate=" + cstate +
+                ", examfee=" + examFee +
                 ", image='" + image + '\'' +
                 ", imageContentType=" + imageContentType +
                 '}';

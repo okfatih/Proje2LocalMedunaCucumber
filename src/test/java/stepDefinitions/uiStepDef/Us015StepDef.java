@@ -143,7 +143,7 @@ public class Us015StepDef {
     @Then("user gets all registered data {string} and {string}")
     public void user_gets_all_registered_data_and(String query, String columnName) {
         actualData = DataBaseUtility.getColumnData(query, columnName);
-
+        System.out.println("actualData = " + actualData);
     }
 
     @Then("Admin navigates to Create a new user")

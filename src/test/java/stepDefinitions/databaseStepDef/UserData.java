@@ -82,6 +82,7 @@ public class UserData {
 
     @Then("user credentials is verified")
     public void userCredentialsIsVerified() {
+        assertTrue(beklenenData.contains("856-45-6788"));
     }
 
 

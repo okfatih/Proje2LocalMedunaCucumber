@@ -43,7 +43,7 @@ public class US10_StepDef {
 
 
         List<Map<String, Object>> queryResultMap = DataBaseUtility.getQueryResultMap(query1);
-        System.out.println("queryResultMap = " + queryResultMap);
+      //  System.out.println("queryResultMap = " + queryResultMap);
 
         List<String> yeniList = appointmentIds.stream().map(Object::toString).toList();
 

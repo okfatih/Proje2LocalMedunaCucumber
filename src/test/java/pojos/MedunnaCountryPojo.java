@@ -1,22 +1,23 @@
 package pojos;
 
 public class MedunnaCountryPojo {
-    private Integer id;
+    private int id;
     private String name;
 
-    public MedunnaCountryPojo(Integer id, String name) {
+    public MedunnaCountryPojo() {
+    }
+
+    public MedunnaCountryPojo(int id, String name) {
+
         this.id = id;
         this.name = name;
     }
-    public MedunnaCountryPojo(){
 
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -30,7 +31,7 @@ public class MedunnaCountryPojo {
 
     @Override
     public String toString() {
-        return "CountryPojo{" +
+        return "MedunnaCountryPojo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

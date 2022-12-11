@@ -1,26 +1,24 @@
 package pojos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MedunaUserPojo {
+public class UserPojo {
     private String createdBy;
     private String createdDate;
     private int id;
     private String login;
     private String firstName;
     private String lastName;
-    private  String email;
+    private String email;
     private boolean activated;
-    private  String langKey;
-    private  String imageUrl;
-    private  String resetDate;
+    private String langKey;
+    private String imageUrl;
+    private String resetDate;
     private String ssn;
 
-    public MedunaUserPojo(String createdBy, String createdDate, int id, String login, String firstName, String lastName, String email, boolean activated, String langKey, String imageUrl,String resetDate, String ssn) {
+    public UserPojo(String createdBy, String createdDate, int id, String login, String firstName, String lastName, String email, boolean activated, String langKey, String imageUrl, String resetDate, String ssn) {
 
         this.createdBy = createdBy;
         this.createdDate = createdDate;
@@ -36,7 +34,7 @@ public class MedunaUserPojo {
         this.ssn = ssn;
     }
 
-    public MedunaUserPojo() {
+    public UserPojo() {
     }
 
     public String getCreatedBy() {
@@ -111,7 +109,7 @@ public class MedunaUserPojo {
         this.langKey = langKey;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
@@ -119,7 +117,7 @@ public class MedunaUserPojo {
         this.imageUrl = imageUrl;
     }
 
-    public Object getResetDate() {
+    public String getResetDate() {
         return resetDate;
     }
 
@@ -137,7 +135,7 @@ public class MedunaUserPojo {
 
     @Override
     public String toString() {
-        return "MedunaUserPojo{" +
+        return "UserPojo{" +
                 "createdBy='" + createdBy + '\'' +
                 ", createdDate='" + createdDate + '\'' +
                 ", id=" + id +
@@ -147,8 +145,8 @@ public class MedunaUserPojo {
                 ", email='" + email + '\'' +
                 ", activated=" + activated +
                 ", langKey='" + langKey + '\'' +
-                ", imageUrl=" + imageUrl +
-                ", resetDate=" + resetDate +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", resetDate='" + resetDate + '\'' +
                 ", ssn='" + ssn + '\'' +
                 '}';
     }
